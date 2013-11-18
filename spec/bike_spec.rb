@@ -17,6 +17,5 @@ describe Bike do
 			bike.fix
 			expect(bike).not_to be_broken
 		end
-
 	end
 end
