@@ -47,6 +47,5 @@ describe BikeContainer  do
 		it "know if empty" do
 			expect(container.empty?).to be_true
 		end
-		
 	end
 end
