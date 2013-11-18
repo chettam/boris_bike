@@ -17,4 +17,14 @@ class Bike
   def fix
     @broken = false
   end
+
+  # have a name
+  def name
+    @name
+  end
+
+  # set a name
+  def name=(name)
+    @name=name
+  end
 end
