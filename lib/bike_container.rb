@@ -30,9 +30,18 @@ module BikeContainer
 	# store a bike
 	def store(bike)
 		raise "invalid bike" unless bike.instance_of?(Bike) || bike.nil?
-		print bike.inspect
-		print @bikes.inspect
+		raise "Station is full" if full?
 		bikes << bike	
+	end
+
+	# is the bike container full 
+	def full?
+		bike_count == capacity 
+	end
+
+	# the number of bikes in the container
+	def bike_count
+		bikes.count 
 	end
 
 end

@@ -32,5 +32,17 @@ describe BikeContainer  do
 		it "handle invalid object or nil" do
 			expect(lambda {container.store(true)}).to raise_error(RuntimeError)
 		end
+
+		it "know the number of bikes in the container" do 
+			container.store(bike)
+			expect(container.bike_count).to eq(1)
+		end
+
+		it "no accept a bike if full" do
+			container.capacity=1
+			container.store(bike)
+			expect(lambda {container.store(bike)}).to raise_error(RuntimeError)
+		end
+
 	end
 end
