@@ -22,4 +22,9 @@ module BikeContainer
 		@name = name
 	end
 
+	# bike container array
+	def bikes
+		@bikes ||= []
+	end
+
 end

@@ -19,5 +19,9 @@ describe BikeContainer  do
 			container.name = "test"
 			expect(container.name).to eq("test")
 		end
+
+		it "should contain bikes" do
+			expect(container.bikes).not_to be_nil
+		end
 	end
 end
