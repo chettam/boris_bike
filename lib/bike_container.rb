@@ -29,7 +29,10 @@ module BikeContainer
 
 	# store a bike
 	def store(bike)
-		@bikes << bike	
+		raise "invalid bike" unless bike.instance_of?(Bike) || bike.nil?
+		print bike.inspect
+		print @bikes.inspect
+		bikes << bike	
 	end
 
 end

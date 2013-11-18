@@ -28,5 +28,9 @@ describe BikeContainer  do
 			container.store(bike)
 			expect(container.bikes.first).to eq(bike)
 		end
+
+		it "handle invalid object or nil" do
+			expect(lambda {container.store(true)}).to raise_error(RuntimeError)
+		end
 	end
 end
