@@ -13,4 +13,13 @@ module BikeContainer
 		@capacity = value
 	end
 
+	# bike container name
+	def name
+		 @name
+	end
+	#set the container name
+	def name=(name)
+		@name = name
+	end
+
 end

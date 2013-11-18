@@ -14,5 +14,10 @@ describe BikeContainer  do
 		it "have a default capacity" do
 			expect(container.capacity).to eq (10)
 		end
+
+		it "have a name that can be set" do
+			container.name = "test"
+			expect(container.name).to eq("test")
+		end
 	end
 end
