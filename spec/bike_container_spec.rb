@@ -44,5 +44,9 @@ describe BikeContainer  do
 			expect(lambda {container.store(bike)}).to raise_error(RuntimeError)
 		end
 
+		it "know if empty" do
+			expect(container.empty?).to be_true
+		end
+		
 	end
 end

@@ -44,4 +44,8 @@ module BikeContainer
 		bikes.count 
 	end
 
+	# is the container empty
+	def empty?
+		bike_count == 0
+	end
 end
