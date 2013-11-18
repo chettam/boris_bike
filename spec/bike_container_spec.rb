@@ -10,5 +10,9 @@ describe BikeContainer  do
 			container.capacity = 20 
 			expect(container.capacity).to eq (20)
 		end
+
+		it "have a default capacity" do
+			expect(container.capacity).to eq (10)
+		end
 	end
 end
