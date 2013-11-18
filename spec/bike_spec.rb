@@ -3,7 +3,6 @@ require_relative '../lib/bike'
 describe Bike do 
 	let (:bike) {Bike.new}
 	context "Should " do
-
 		it "not be broken when create" do
 			expect(bike).not_to be_broken
 		end
