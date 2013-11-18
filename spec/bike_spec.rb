@@ -13,5 +13,10 @@ describe Bike do
 			expect(bike).to be_broken
 		end
 
+		it " able to be fixed" do
+			bike.fix
+			expect(bike).not_to be_broken
+		end
+
 	end
 end
