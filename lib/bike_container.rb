@@ -27,4 +27,9 @@ module BikeContainer
 		@bikes ||= []
 	end
 
+	# store a bike
+	def store(bike)
+		@bikes << bike	
+	end
+
 end

@@ -5,7 +5,7 @@ class ContainerHolder ; include BikeContainer ;end
 describe BikeContainer  do 
 	let (:bike) {Bike.new}
 	let (:container) {ContainerHolder.new}
-	context "Should " do
+	context "should " do
 		it "have a set capacity" do
 			container.capacity = 20 
 			expect(container.capacity).to eq (20)
@@ -20,8 +20,13 @@ describe BikeContainer  do
 			expect(container.name).to eq("test")
 		end
 
-		it "should contain bikes" do
+		it "contain bikes" do
 			expect(container.bikes).not_to be_nil
+		end
+
+		it "store bikes" do
+			container.store(bike)
+			expect(container.bikes.first).to eq(bike)
 		end
 	end
 end
