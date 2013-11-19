@@ -15,7 +15,12 @@ class DockingStation
 		store(bike)
 	end
 
-	def undock(options ={:van => true ,:station => true})
-	 bike = release(options)
+	def undock_van
+	 bikes.detect {|bike| bike.broken? }
+	end
+
+	def undock
+		return if empty?
+		bikes.detect {|bike| !bike.broken?}
 	end
 end

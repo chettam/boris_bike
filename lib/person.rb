@@ -11,7 +11,7 @@ class Person
 	def hire(station)
 		# person is guetting a bike from the station
 		@hired = true
-		bike = station.release({:van => false})
+		@bike = station.undock
 	end
 	# a person's bike
 	def bike

@@ -50,16 +50,16 @@ module BikeContainer
 	end
 
 	# reelease bike
-	def release(options={})
-		return if empty?
-		if options[:van] == false || options[:van] == true && options[:station] == false
-			return @bikes.detect {|bike| !bike.broken? }
-		elsif options[:van] == true && options[:station] == true
-			return @bikes.detect {|bike| bike.broken? }
-		else
-			return
-		end
-	end
+	#def release(options={})
+	#	return if empty?
+	#		if options[:van] == false || options[:van] == true && options[:station] == false
+	#		return @bikes.detect {|bike| !bike.broken? }
+	#	elsif options[:van] == true && options[:station] == true
+	#	return @bikes.detect {|bike| bike.broken? }
+	#	else
+	#		return
+	#	end
+	#end
 
 	# return the available bikes ( bikes docked and not broken)
 	def available_bikes(options={:van => false})

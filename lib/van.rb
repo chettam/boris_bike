@@ -13,7 +13,11 @@ class Van
 
 	def dock(location)
 		until full?
+			if location.class == DockingStation
+			 	bikes << location.undock_van
+			 else
 			 	bikes << location.undock
+			 end
 		end
 	end
 

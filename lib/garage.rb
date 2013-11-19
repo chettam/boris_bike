@@ -18,7 +18,7 @@ class Garage
 
 	def undock
 		repair
-		bike = release({:van =>true , :station => false})
+		bikes.detect {|bike| !bike.broken? }
 	end
 
 	def repair 

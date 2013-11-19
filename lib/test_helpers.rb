@@ -5,7 +5,7 @@ require_relative 'garage'
 require_relative 'person'
 require_relative 'bike'
 
-module Boris
+module TestHelpers
 
 		# names 
 	@@station_names = ["Old Street","Oxford Street","City Road","Meadowside","Regent Street","Totenham Court Road","Commercial Road","Moorgate","Park Lane","Leicester Sqare"]
@@ -27,8 +27,8 @@ module Boris
 	end
 
 	# create stations
-	def create_stations
-		@@station_names.each do|station_name|  
+	def create_stations(times)
+		@@station_names[0..times].each do|station_name|  
 			station = DockingStation.new(:capacity => 100)
 			station.name = station_name
 			@@stations << station
