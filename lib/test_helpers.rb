@@ -76,31 +76,18 @@ module TestHelpers
 
 	# simulate person using bikes
   def user_activity
-    @@persons.each do |person|
+    @@persons.map do |person|
      if person.hired?
         person.bike.break if rand(100) % 3 == 0
         person.release(@@stations[rand(@@stations.size)])
-        puts "#{person.name} is releasing #{person.bike}, is the bike broken ? #{person.bike.broken?}"
+        "#{person.name} is releasing #{person.bike}, is the bike broken ? #{person.bike.broken?}"
       else
         person.hire(@@stations[rand(@@stations.size)])
-        puts "#{person.name} is using #{person.bike}, is the bike broken ? #{person.bike.broken?}"
+        "#{person.name} is using #{person.bike}, is the bike broken ? #{person.bike.broken?}"
       end
     end
   end
 
 	# shows the status of a station
-	def status_station
-		print_separator
-		@@stations.each {|station| puts "Station #{station.name} has a capacity of #{station.capacity} there is #{station.available_bikes.count} available bikes and #{station.bike_count - station.available_bikes.count} broken bikes" }
-		print_separator
-	end
-
-  def status_garage
-    print_separator
-    @@garages.each {|garage| puts "Garage #{garage.name} has a capacity of #{garage.capacity} there is #{garage.available_bikes.count} available bikes and #{garage.bike_count - garage.available_bikes.count} broken bikes" }
-  end
-	def print_separator 
-		puts "----------------------------------------"
-	end
 
 end

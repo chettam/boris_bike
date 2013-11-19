@@ -22,7 +22,7 @@ class DockingStation
 	end
 
 	def undock
-		puts 'Empty' if empty?
+		# puts 'Empty' if empty?
 		return if empty?
 		bikes.detect {|bike| !bike.broken?}
 	end
