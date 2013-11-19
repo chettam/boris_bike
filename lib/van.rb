@@ -11,7 +11,14 @@ class Van
 
 	def dock(location)
 		until full?
-			bikes << location.release({:van =>true , :station =>false})
+			bikes << location.release({:van =>true , :station =>true})
 		end
 	end
+
+	def move(location)
+		bikes.each do |bike|
+			location.dock(bike)
+		end
+	end
+
 end

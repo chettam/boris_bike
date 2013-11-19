@@ -26,7 +26,15 @@ describe Van  do
 			set_capacity
 			load_station
 			van.dock(station)
-			expect(van.bikes.length).to eq (van.capacity)
+			expect(van.bikes.length).to eq(van.capacity)
+		end
+
+		it "move bikes between from a station and garage" do
+			set_capacity
+			load_station
+			van.dock(station)
+			van.move(garage)
+			expect(garage.bikes.length).to eq (van.capacity)
 		end
 
 		def load_garage
