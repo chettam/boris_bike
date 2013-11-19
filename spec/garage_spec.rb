@@ -28,7 +28,6 @@ describe Garage  do
 		it "release bikes to vans" do
 			dock_broken_bike
 			bike_undocked = garage.undock
-			puts bike_undocked
 			expect(bike.broken?).not_to be_true
 		end
 
