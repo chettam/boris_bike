@@ -13,5 +13,10 @@ class Garage
 		store(bike) if bike.broken?
 	end
 
+	def undock
+		bike = release({:van => true , :station =>false}).first
+		bike.fix
+	end
+
 
 end

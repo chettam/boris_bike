@@ -1,4 +1,5 @@
 require_relative '../lib/garage'
+
 describe Garage  do
 
 		let (:garage) {Garage.new} 
@@ -9,14 +10,12 @@ describe Garage  do
 	context "Should" do
 
 		it "dock a bike" do
-			broken_bike.break
-			garage.dock(broken_bike)
+			dock_broken_bike
 			expect(garage.bikes.first).to eq(broken_bike)
 		end
 
 		it "dock only broken bike" do
-			broken_bike.break
-			garage.dock(broken_bike)
+			dock_broken_bike
 			bike = garage.bikes.first
 			expect(bike).to be_broken
 		end
@@ -25,6 +24,20 @@ describe Garage  do
 			garage.dock(bike)
 			expect(garage.bikes.first).to  be_nil
 		end
+
+		it "release bikes to vans" do
+			dock_broken_bike
+			bike_undocked = garage.undock
+			puts bike_undocked
+			expect(bike.broken?).not_to be_true
+		end
+
+
+		def dock_broken_bike
+			broken_bike.break
+			garage.dock(broken_bike)
+		end
+
 	end
 end
 
