@@ -47,5 +47,11 @@ describe BikeContainer  do
 		it "know if empty" do
 			expect(container.empty?).to be_true
 		end
+
+		it "return a bike" do
+			container.store(bike)
+			expect(container.release).to eq(bike)
+		end
+		
 	end
 end

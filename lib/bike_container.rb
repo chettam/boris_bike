@@ -48,4 +48,9 @@ module BikeContainer
 	def empty?
 		bike_count == 0
 	end
+
+	# reelease bike
+	def release
+		@bikes.first
+	end
 end
