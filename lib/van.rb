@@ -9,9 +9,9 @@ class Van
 
 	end
 
-	def dock(garage)
+	def dock(location)
 		until full?
-			bikes << garage.release({:van =>true , :station =>false})
+			bikes << location.release({:van =>true , :station =>false})
 		end
 	end
 end
