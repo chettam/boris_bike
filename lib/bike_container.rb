@@ -52,7 +52,7 @@ module BikeContainer
 	# reelease bike
 	def release(options={})
 		return if empty?
-		if options[:van] == false
+		if options[:van] == false || options[:van] == true && options[:station] == false
 			@bikes.each {|bike| return bike unless bike.broken?}
 		elsif options[:van] == true && options[:station] == true
 			@bikes.each {|bike| return bike if bike.broken?}

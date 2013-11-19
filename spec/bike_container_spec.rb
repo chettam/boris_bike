@@ -60,18 +60,28 @@ describe BikeContainer  do
 		end
 
 		it "return a working bike to users" do
-			broken_bike.break
-			container.store(broken_bike)
-			container.store(bike)
+			load_container_with_bikes
 			bike = container.release({:van => false , :station =>true})
 			expect(bike).not_to be_broken
 		end
 
 		it "return a broken bike to vans while at stations" do
+			load_container_with_bikes
+			bike = container.release({:van => true , :station =>true})
+			expect(bike).to be_broken
+		end
+
+		it "return a working bike to vans at garage" do
+			load_container_with_bikes
+			bike = container.release({:van => true , :station =>false})
+			expect(bike).not_to be_broken
+		end
+
+		def load_container_with_bikes
 			broken_bike.break
 			container.store(broken_bike)
 			container.store(bike)
-			bike = container.release({:van => true , :station =>true})
 		end
+
 	end
 end
