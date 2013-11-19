@@ -4,7 +4,9 @@ class ContainerHolder ; include BikeContainer ;end
 
 describe BikeContainer  do 
 	let (:bike) {Bike.new}
+	let (:broken_bike) {Bike.new}
 	let (:container) {ContainerHolder.new}
+
 	context "should " do
 		it "have a set capacity" do
 			container.capacity = 20 
@@ -55,6 +57,14 @@ describe BikeContainer  do
 
 		it "return nil if the container ie empty" do
 			expect(container.release).to be_nil
+		end
+
+		it "return a working bike to users" do
+			broken_bike.break
+			container.store(broken_bike)
+			container.store(bike)
+			bike = container.release
+			expect(bike).not_to be_broken
 		end
 
 	end

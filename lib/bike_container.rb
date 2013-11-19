@@ -52,6 +52,6 @@ module BikeContainer
 	# reelease bike
 	def release
 		return if empty?
-		@bikes.first
+		@bikes.each {|bike| return bike unless bike.broken?}
 	end
 end
