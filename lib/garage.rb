@@ -14,9 +14,12 @@ class Garage
 	end
 
 	def undock
-		bike = release({:van => true , :station => true})
-		bike.fix
-		bike
+		repair
+		bike = release({:van =>true , :station => false})
+	end
+
+	def repair 
+		bikes.each {|bike| bike.fix}
 	end
 
 

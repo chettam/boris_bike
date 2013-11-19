@@ -14,24 +14,24 @@ describe DockingStation  do
 
 		it "undock bike"do
 			station.dock(bike)
-			expect(station.undock).to eq(bike)
+			expect(station.undock({:van =>false,:station => true})).to eq(bike)
 		end
 
 		it "undock broken bikes for vans" do
 			bike.break
 			station.dock(bike)
-			expect(station.undock({:van => true ,:station => true})).to eq(bike)
+			expect(station.undock).to eq(bike)
 		end
 
 		it "not undock working bikes to van" do 
 			station.dock(bike)
-			expect(station.undock({:van => true ,:station => true})).to be_nil
+			expect(station.undock).to be_nil
 		end
 
 		it "not undock broken bikes for users" do
 			bike.break
 			station.dock(bike)
-			expect(station.undock({:van => false ,:station => true})).to be_nil
+			expect(station.undock({:van =>false,:station => true})).to be_nil
 		end
 	end
 end

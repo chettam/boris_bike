@@ -13,7 +13,7 @@ class DockingStation
 		store(bike)
 	end
 
-	def undock(options ={:van => false})
+	def undock(options ={:van => true ,:station => true})
 	 bike = release(options)
 	end
 end

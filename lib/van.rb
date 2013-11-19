@@ -11,14 +11,17 @@ class Van
 
 	def dock(location)
 		until full?
-			bikes << location.release({:van =>true , :station =>true})
+			 	bikes << location.undock
 		end
 	end
 
 	def move(location)
 		bikes.each do |bike|
-			location.dock(bike)
+			if location.class == DockingStation
+				location.dock(bike) unless bike.broken?
+			else
+				location.dock(bike) if bike.broken?
+			end
 		end
 	end
-
 end
