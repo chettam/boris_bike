@@ -12,4 +12,8 @@ class DockingStation
 	def dock(bike)
 		store(bike)
 	end
+
+	def undock
+		release({:van =>false})
+	end
 end

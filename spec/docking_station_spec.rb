@@ -8,8 +8,13 @@ describe DockingStation  do
 	context "should" do
 
 		it "dock a bike" do
-		station.dock(bike)
-		expect(station.bikes.length).to eq(1)
+			station.dock(bike)
+			expect(station.bikes.length).to eq(1)
+		end
+
+		it "undock bike"do
+			station.dock(bike)
+			expect(station.undock).to eq(bike)
 		end
 	end
 end
