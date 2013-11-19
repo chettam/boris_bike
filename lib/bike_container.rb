@@ -61,11 +61,6 @@ module BikeContainer
 
 	# return the available bikes ( bikes docked and not broken)
 	def available_bikes(options={:van => false})
-
-		if options[:van] == false
-			bikes.reject {|bike| bike.broken?}
-		else 
-			bikes.reject {|bike| !bike.broken?}
-		end
+		return  options[:van] == false ? bikes.reject {|bike| bike.broken?} : bikes.reject {|bike| !bike.broken?}
 	end
 end
