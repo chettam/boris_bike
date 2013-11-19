@@ -52,6 +52,10 @@ describe BikeContainer  do
 			container.store(bike)
 			expect(container.release).to eq(bike)
 		end
-		
+
+		it "return nil if the container ie empty" do
+			expect(container.release).to be_nil
+		end
+
 	end
 end

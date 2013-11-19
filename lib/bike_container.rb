@@ -51,6 +51,7 @@ module BikeContainer
 
 	# reelease bike
 	def release
+		return if empty?
 		@bikes.first
 	end
 end
