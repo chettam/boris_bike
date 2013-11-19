@@ -77,9 +77,18 @@ describe BikeContainer  do
 			expect(bike).not_to be_broken
 		end
 
+		it "return available bikes without" do
+			load_container_with_bikes
+			bikes = container.available_bikes
+			bikes.each do |bike|
+				expect(bike.broken?).not_to be_true
+			end
+		end
+
 		def load_container_with_bikes
 			broken_bike.break
 			container.store(broken_bike)
+			container.store(bike)
 			container.store(bike)
 		end
 

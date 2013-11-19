@@ -58,4 +58,9 @@ module BikeContainer
 			@bikes.each {|bike| return bike if bike.broken?}
 		end
 	end
+
+	# return the available bikes ( bikes docked and not broken)
+	def available_bikes
+		bikes.reject {|bike| bike.broken?}
+	end
 end
