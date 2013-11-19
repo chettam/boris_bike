@@ -52,20 +52,26 @@ describe BikeContainer  do
 
 		it "return a bike" do
 			container.store(bike)
-			expect(container.release).to eq(bike)
+			expect(container.release({:van => false , :station =>true})).to eq(bike)
 		end
 
 		it "return nil if the container ie empty" do
-			expect(container.release).to be_nil
+			expect(container.release({:van => false , :station =>true})).to be_nil
 		end
 
 		it "return a working bike to users" do
 			broken_bike.break
 			container.store(broken_bike)
 			container.store(bike)
-			bike = container.release
+			bike = container.release({:van => false , :station =>true})
 			expect(bike).not_to be_broken
 		end
 
+		it "return a broken bike to vans while at stations" do
+			broken_bike.break
+			container.store(broken_bike)
+			container.store(bike)
+			bike = container.release({:van => true , :station =>true})
+		end
 	end
 end
