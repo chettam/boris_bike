@@ -9,8 +9,8 @@ module TestHelpers
 
 		# names 
 	@@station_names = ["Old Street","Oxford Street","City Road","Meadowside","Regent Street","Totenham Court Road","Commercial Road","Moorgate","Park Lane","Leicester Sqare"]
-	@@van_names 	 = ["Van 1","Van2"]
-	@@garage_names = ["garage 1","garage 2"]
+	@@van_names 	 = ["Van 1"]
+	@@garage_names = ["garage 1"]
 	@@person_names = ["JB","Peter","Giacomo","James","Tom","Gianni","Bruce","Hannah","Anath","Ken","Michael","Erica"]
 	@@stations     = []
 	@@vans         = []
@@ -19,7 +19,7 @@ module TestHelpers
 
 	# program start
 	def start 
-		create_stations
+		create_stations(10)
 		create_vans
 		create_garages
 		create_persons
@@ -29,7 +29,7 @@ module TestHelpers
 	# create stations
 	def create_stations(times)
 		@@station_names[0..times].each do|station_name|  
-			station = DockingStation.new(:capacity => 100)
+			station = DockingStation.new(:capacity => 300)
 			station.name = station_name
 			@@stations << station
 		end
@@ -47,7 +47,7 @@ module TestHelpers
 	#create garages
 	def create_garages 
 		@@garage_names.each do |garage_name|
-			garage = Garage.new(:capacity => rand(100))
+			garage = Garage.new(:capacity => 300)
 			garage.name = garage_name
 			@@garages << garage
 		end
@@ -68,11 +68,25 @@ module TestHelpers
 		@@stations.each do|station| 
   		(0..rand(100)).each do 
         bike = Bike.new
-        bike.break if rand(200) % 6 == 0
+        bike.break if rand(200) % 5 == 0
         station.dock(bike) 
   		end
     end
 	end
+
+	# simulate person using bikes
+  def user_activity
+    @@persons.each do |person|
+     if person.hired?
+        person.bike.break if rand(100) % 3 == 0
+        person.release(@@stations[rand(@@stations.size)])
+        puts "#{person.name} is releasing #{person.bike}, is the bike broken ? #{person.bike.broken?}"
+      else
+        person.hire(@@stations[rand(@@stations.size)])
+        puts "#{person.name} is using #{person.bike}, is the bike broken ? #{person.bike.broken?}"
+      end
+    end
+  end
 
 	# shows the status of a station
 	def status_station

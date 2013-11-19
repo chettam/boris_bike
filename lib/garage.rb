@@ -18,7 +18,9 @@ class Garage
 
 	def undock
 		repair
-		bikes.detect {|bike| !bike.broken? }
+		bike =bikes.detect {|bike| !bike.broken? }
+		bikes.delete(bike)
+		bike
 	end
 
 	def repair 

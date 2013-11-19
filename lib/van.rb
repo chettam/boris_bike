@@ -24,8 +24,10 @@ class Van
 	def move(location)
 		bikes.each do |bike|
 			if location.class == DockingStation
+				bikes.delete(bike)
 				location.dock(bike) unless bike.broken?
 			else
+				bikes.delete(bike)
 				location.dock(bike) if bike.broken?
 			end
 		end

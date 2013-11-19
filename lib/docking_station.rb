@@ -16,10 +16,13 @@ class DockingStation
 	end
 
 	def undock_van
-	 bikes.detect {|bike| bike.broken? }
+	 bike = bikes.detect {|bike| bike.broken? }
+	 bikes.delete(bike)
+	 bike
 	end
 
 	def undock
+		puts 'Empty' if empty?
 		return if empty?
 		bikes.detect {|bike| !bike.broken?}
 	end
