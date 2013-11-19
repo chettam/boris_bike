@@ -27,5 +27,11 @@ describe DockingStation  do
 			station.dock(bike)
 			expect(station.undock({:van => true ,:station => true})).to be_nil
 		end
+
+		it "not undock broken bikes for users" do
+			bike.break
+			station.dock(bike)
+			expect(station.undock({:van => false ,:station => true})).to be_nil
+		end
 	end
 end
