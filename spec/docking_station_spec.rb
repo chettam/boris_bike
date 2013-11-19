@@ -16,5 +16,11 @@ describe DockingStation  do
 			station.dock(bike)
 			expect(station.undock).to eq(bike)
 		end
+
+		it "undock broken bikes for vans" do
+			bike.break
+			station.dock(bike)
+			expect(station.undock({:van => true ,:station => true})).to eq(bike)
+		end
 	end
 end
