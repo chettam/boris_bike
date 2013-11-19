@@ -32,7 +32,6 @@ describe Garage  do
 			expect(bike.broken?).not_to be_true
 		end
 
-
 		def dock_broken_bike
 			broken_bike.break
 			garage.dock(broken_bike)

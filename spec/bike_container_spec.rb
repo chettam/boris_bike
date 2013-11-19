@@ -77,12 +77,17 @@ describe BikeContainer  do
 			expect(bike).not_to be_broken
 		end
 
-		it "return available bikes without" do
+		it "return available bikes without broken" do
 			load_container_with_bikes
 			bikes = container.available_bikes
 			bikes.each do |bike|
 				expect(bike.broken?).not_to be_true
 			end
+		end
+
+		it "return broken bikes to vans" do
+			load_container_with_bikes
+			expect(container.available_bikes({:van => true}).length).to eq(1)
 		end
 
 		def load_container_with_bikes
