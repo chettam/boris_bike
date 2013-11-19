@@ -10,7 +10,7 @@ class Garage
 	end
 
 	def dock(bike)
-		store(bike)
+		store(bike) if bike.broken?
 	end
 
 
