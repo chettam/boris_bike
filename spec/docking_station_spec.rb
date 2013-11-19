@@ -22,5 +22,10 @@ describe DockingStation  do
 			station.dock(bike)
 			expect(station.undock({:van => true ,:station => true})).to eq(bike)
 		end
+
+		it "not undock working bikes to van" do 
+			station.dock(bike)
+			expect(station.undock({:van => true ,:station => true})).to be_nil
+		end
 	end
 end

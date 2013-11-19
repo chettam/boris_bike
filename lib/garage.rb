@@ -14,8 +14,9 @@ class Garage
 	end
 
 	def undock
-		bike = release({:van => true , :station =>false}).first
+		bike = release({:van => true , :station => true})
 		bike.fix
+		bike
 	end
 
 
